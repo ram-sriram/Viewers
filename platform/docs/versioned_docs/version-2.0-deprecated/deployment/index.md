@@ -2,15 +2,15 @@
 sidebar_position: 1
 sidebar_label: Overview
 ---
+
 # Deployment
 
-The OHIF Viewer can be embedded in other web applications via it's [packaged
+The Cure Assist can be embedded in other web applications via it's [packaged
 script source][viewer-npm], or served up as a stand-alone PWA ([progressive web
 application][pwa-url]) by building and hosting a collection of static assets. In
 either case, you will need to configure your instance of the Viewer so that it
 can connect to your data source (the database or PACS that provides the data
 your Viewer will display).
-
 
 Our goal is to make deployment as simple and painless as possible; however,
 there is an inherent amount of complexity in configuring and deploying web
@@ -21,7 +21,7 @@ applications. If you find yourself a little lost, please don't hesitate to
 
 ### Embedded Viewer
 
-The quickest and easiest way to get the OHIF Viewer up and running is to embed
+The quickest and easiest way to get the Cure Assist up and running is to embed
 it into an existing web application. It allows us to forego a "build step", and
 add a powerful medical imaging viewer to an existing web page using only a few
 include tags.
@@ -31,10 +31,9 @@ include tags.
 
 ![embeddedViewer](../assets/img/embedded-viewer-diagram.png)
 
-
 ### Stand-alone Viewer
 
-Deploying the OHIF Viewer as a stand-alone web application provides many
+Deploying the Cure Assist as a stand-alone web application provides many
 benefits, but comes at the cost of time and complexity. Some benefits include:
 
 _Today:_
@@ -50,7 +49,7 @@ _In the future:_
 
 #### Hosted Static Assets
 
-At the end of the day, a production OHIF Viewer instance is a collection of
+At the end of the day, a production Cure Assist instance is a collection of
 HTML, CSS, JS, Font Files, and Images. We "build" those files from our
 `source code` with configuration specific to our project. We then make those
 files publicly accessible by hosting them on a Web Server.
@@ -63,7 +62,7 @@ deployment experience.
 
 "Building", or creating, the files you will need is the same regardless of the
 web host you choose. You can find detailed instructions on how to configure and
-build the OHIF Viewer in our
+build the Cure Assist in our
 ["Build for Production" guide](./recipes/build-for-production.md).
 
 ##### Part 2 - Host Your App
@@ -89,7 +88,7 @@ _Advanced_
 
 ## Data
 
-The OHIF Viewer is able to connect to any data source that implements the [DICOM
+The Cure Assist is able to connect to any data source that implements the [DICOM
 Web Standard][dicom-web-standard]. [DICOM Web][dicom-web] refers to RESTful
 DICOM Services -- a recently standardized set of guidelines for exchanging
 medical images and imaging metadata over the internet. Not all archives fully
@@ -97,7 +96,7 @@ support it yet, but it is gaining wider adoption.
 
 ### Configure Connection
 
-If you have an existing archive and intend to host the OHIF Viewer at the same
+If you have an existing archive and intend to host the Cure Assist at the same
 domain name as your archive, then connecting the two is as simple as following
 the steps layed out in our
 [Configuration Essentials Guide](./../configuring/index.md).
@@ -109,7 +108,7 @@ We provide some guidance on configuring a local image archive in our
 archive remotely is a little trickier. You can check out some of our
 [advanced recipes](#recipes) for modeled setups that may work for you.
 
-#### What if I intend to host the OHIF Viewer at a different domain?
+#### What if I intend to host the Cure Assist at a different domain?
 
 There are two important steps to making sure this setup works:
 
@@ -131,89 +130,105 @@ appropriate headers. You can find an example of this setup in our
 
 #### What if my archive doesn't support DicomWeb?
 
-It's possible to supply all Study data via JSON format, in the event you do not have a DicomWeb endpoint.
-You can host all of the relevant files on any web accessible server (Amazon S3, Azure Blob Storage, Local file server etc.)
+It's possible to supply all Study data via JSON format, in the event you do not
+have a DicomWeb endpoint. You can host all of the relevant files on any web
+accessible server (Amazon S3, Azure Blob Storage, Local file server etc.)
 
-This JSON is supplied via the '?url=' query parameter.
-It should reference an endpoint that returns **application/json** formatted text.
+This JSON is supplied via the '?url=' query parameter. It should reference an
+endpoint that returns **application/json** formatted text.
 
-If you do not have an API, you can simply return a text file containing the JSON from any web server.
+If you do not have an API, you can simply return a text file containing the JSON
+from any web server.
 
+You tell the Cure Assist to use JSON by appending the `'?url='` query to the
+`/Viewer` route:
 
-You tell the OHIF viewer to use JSON by appending the `'?url='` query to the `/Viewer` route:
+eg.
+`https://my-test-ohif-server/viewer?url=https://my-json-server/study-uid.json`
 
-eg. `https://my-test-ohif-server/viewer?url=https://my-json-server/study-uid.json`
+The returned JSON object must contain a single root object with a 'studies'
+array.
 
-The returned JSON object must contain a single root object with a 'studies' array.
+_Sample JSON format:_
 
-
-*Sample JSON format:*
 ```json
 {
-    "studies": [
-      {
-        "StudyInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.78",
-        "StudyDescription": "BRAIN SELLA",
-        "StudyDate": "20010108",
-        "StudyTime": "120022",
-        "PatientName": "MISTER^MR",
-        "PatientId": "832040",
-        "series": [
-          {
-            "SeriesDescription": "SAG T-1",
-            "SeriesInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.121",
-            "SeriesNumber": 2,
-            "SeriesDate": "20010108",
-            "SeriesTime": "120318",
-            "Modality": "MR",
-            "instances": [
-              {
-                "metadata": {
-                    "Columns": 512,
-                    "Rows": 512,
-                    "InstanceNumber": 3,
-                    "AcquisitionNumber": 0,
-                    "PhotometricInterpretation": "MONOCHROME2",
-                    "BitsAllocated": 16,
-                    "BitsStored": 16,
-                    "PixelRepresentation": 1,
-                    "SamplesPerPixel": 1,
-                    "PixelSpacing": [0.390625, 0.390625],
-                    "HighBit": 15,
-                    "ImageOrientationPatient": [0,1,0,0,0,-1],
-                    "ImagePositionPatient": [11.600000,-92.500000, 98.099998],
-                    "FrameOfReferenceUID": "1.2.840.113619.2.5.1762583153.223134.978956938.470",
-                    "ImageType": ["ORIGINAL","PRIMARY","OTHER"],
-                    "Modality": "MR",
-                    "SOPInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.124",
-                    "SeriesInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.121",
-                    "StudyInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.78"
-                },
-                "url": "dicomweb://s3.amazonaws.com/lury/MRStudy/1.2.840.113619.2.5.1762583153.215519.978957063.124.dcm"
-             }
-           ]
-         }
-       ]
-     }
-   ]
+  "studies": [
+    {
+      "StudyInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.78",
+      "StudyDescription": "BRAIN SELLA",
+      "StudyDate": "20010108",
+      "StudyTime": "120022",
+      "PatientName": "MISTER^MR",
+      "PatientId": "832040",
+      "series": [
+        {
+          "SeriesDescription": "SAG T-1",
+          "SeriesInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.121",
+          "SeriesNumber": 2,
+          "SeriesDate": "20010108",
+          "SeriesTime": "120318",
+          "Modality": "MR",
+          "instances": [
+            {
+              "metadata": {
+                "Columns": 512,
+                "Rows": 512,
+                "InstanceNumber": 3,
+                "AcquisitionNumber": 0,
+                "PhotometricInterpretation": "MONOCHROME2",
+                "BitsAllocated": 16,
+                "BitsStored": 16,
+                "PixelRepresentation": 1,
+                "SamplesPerPixel": 1,
+                "PixelSpacing": [0.390625, 0.390625],
+                "HighBit": 15,
+                "ImageOrientationPatient": [0, 1, 0, 0, 0, -1],
+                "ImagePositionPatient": [11.6, -92.5, 98.099998],
+                "FrameOfReferenceUID": "1.2.840.113619.2.5.1762583153.223134.978956938.470",
+                "ImageType": ["ORIGINAL", "PRIMARY", "OTHER"],
+                "Modality": "MR",
+                "SOPInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.124",
+                "SeriesInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.121",
+                "StudyInstanceUID": "1.2.840.113619.2.5.1762583153.215519.978957063.78"
+              },
+              "url": "dicomweb://s3.amazonaws.com/lury/MRStudy/1.2.840.113619.2.5.1762583153.215519.978957063.124.dcm"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
-More info on this JSON format can be found here [Issue #1500](https://github.com/OHIF/Viewers/issues/1500)
 
+More info on this JSON format can be found here
+[Issue #1500](https://github.com/OHIF/Viewers/issues/1500)
 
 **Implementation Notes:**
 
-1. When hosting the viewer, you will also need to host a /viewer route on the server - or the browser may not be able to find the route.
-2. For each instance url (dicom object) in the returned JSON, you must prefix the `url` with `dicomweb:` in order for the cornerstone image loader to retrieve it correctly.
- eg. `https://image-server/my-image.dcm` ---> `dicomweb:https://image-server/my-image.dcm`
-3. The JSON format above is compatible with >= v3.7.8 of the application. Older versions of the viewer used a different JSON format. As of 20/04/20 the public [https://viewer.ohif.org/] is a pre 3.0 version that does not support this format yet.
-4. The JSON format is case-sensitive. Please ensure you have matched casing with the naturalised Dicom format referenced in [Issue #1500](https://github.com/OHIF/Viewers/issues/1500).
+1. When hosting the viewer, you will also need to host a /viewer route on the
+   server - or the browser may not be able to find the route.
+2. For each instance url (dicom object) in the returned JSON, you must prefix
+   the `url` with `dicomweb:` in order for the cornerstone image loader to
+   retrieve it correctly. eg. `https://image-server/my-image.dcm` --->
+   `dicomweb:https://image-server/my-image.dcm`
+3. The JSON format above is compatible with >= v3.7.8 of the application. Older
+   versions of the viewer used a different JSON format. As of 20/04/20 the
+   public [https://viewer.ohif.org/] is a pre 3.0 version that does not support
+   this format yet.
+4. The JSON format is case-sensitive. Please ensure you have matched casing with
+   the naturalised Dicom format referenced in
+   [Issue #1500](https://github.com/OHIF/Viewers/issues/1500).
 
-*CORS Issues (Cross-Origin Resource Sharing)*
+_CORS Issues (Cross-Origin Resource Sharing)_
 
-If you host a JSON API or Images on a different domain from the the app itself, you will likely have CORS issues. This will also happen when testing from Localhost and reaching out to remote servers.
-Even if the domain is the same, different ports, subdomains or protocols (https vs http) will also cause CORS errors.
-You will to need add a configuration on each server hosting these assets to allow your App server origin.
+If you host a JSON API or Images on a different domain from the the app itself,
+you will likely have CORS issues. This will also happen when testing from
+Localhost and reaching out to remote servers. Even if the domain is the same,
+different ports, subdomains or protocols (https vs http) will also cause CORS
+errors. You will to need add a configuration on each server hosting these assets
+to allow your App server origin.
 
 For example:
 
@@ -223,15 +238,23 @@ Your JSON API is hosted on `https://my-json-api.aws.com`
 
 And your images are stored on Amazon S3 at `https://my-s3-bucket.aws.com`
 
-When you first start your application, browsing to `https://my-ohif-server.com/viewer?url=https://my-json-api.aws.com/api/my-json-study-info.json`, you will likely get a CORS error in the browser console as it tries to connect to `https://my-json-api.aws.com`.
+When you first start your application, browsing to
+`https://my-ohif-server.com/viewer?url=https://my-json-api.aws.com/api/my-json-study-info.json`,
+you will likely get a CORS error in the browser console as it tries to connect
+to `https://my-json-api.aws.com`.
 
-Adding a setting on the JSON server to allow the CORS origin = `https://my-ohif-server.com` should solve this.
+Adding a setting on the JSON server to allow the CORS origin =
+`https://my-ohif-server.com` should solve this.
 
-Next, you will likely get a similar CORS error, as the browser tries to go to `https://my-s3-bucket.aws.com`.
-You will need to go to the S3 bucket configuration, and add a CORS setting to allow origin = `https://my-ohif-server.com`.
+Next, you will likely get a similar CORS error, as the browser tries to go to
+`https://my-s3-bucket.aws.com`. You will need to go to the S3 bucket
+configuration, and add a CORS setting to allow origin =
+`https://my-ohif-server.com`.
 
-Essentially, whenever the application connects to a remote resource, you will need to add the applications url to the allowed CORS Origins on that resource. Adding an origin similar to https://localhost:3000 will also allow for local testing.
-
+Essentially, whenever the application connects to a remote resource, you will
+need to add the applications url to the allowed CORS Origins on that resource.
+Adding an origin similar to https://localhost:3000 will also allow for local
+testing.
 
 ### Securing Your Data
 
@@ -239,7 +262,7 @@ Essentially, whenever the application connects to a remote resource, you will ne
 > you've gotten it right. Don't hesitate to work with professional auditors, or
 > [enlist help from experts](./../help.md).
 
-The OHIF Viewer can be configured to work with authorization servers that
+The Cure Assist can be configured to work with authorization servers that
 support one or more of the OpenID-Connect authorization flows. The Viewer finds
 it's OpenID-Connect settings on the `oidc` configuration key. You can set these
 values following the instructions laid out in the

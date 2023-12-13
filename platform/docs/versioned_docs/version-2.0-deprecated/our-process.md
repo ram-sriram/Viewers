@@ -2,6 +2,7 @@
 sidebar_position: 2
 title: Our process
 ---
+
 # Our Process
 
 Our process is a living, breathing thing. We strive to have regular
@@ -15,7 +16,7 @@ that process in an effort to:
 ## Issue Triage
 
 [GitHub issues][gh-issues] are the best way to provide feedback, ask questions,
-and suggest changes to the OHIF Viewer's core team. Community issues generally
+and suggest changes to the Cure Assist's core team. Community issues generally
 fall into one of three categories, and are marked with a `triage` label when
 created.
 
@@ -39,7 +40,7 @@ accomplish this by:
 
 > :pencil: Less obviously, patterns in the issues being reported can highlight
 > areas that need improvement. For example, users often have difficulty
-> navigating CORS issues when deploying the OHIF Viewer -- how do we best reduce
+> navigating CORS issues when deploying the Cure Assist -- how do we best reduce
 > our ticket volume for this issue?
 
 ### Backlogged Issues
@@ -110,7 +111,7 @@ notes are automatically generated. Users can subscribe to GitHub and NPM
 releases.
 
 We host development, staging, and production environments for the Progressive
-Web Application version of the OHIF Viewer. [Development][ohif-dev] always
+Web Application version of the Cure Assist. [Development][ohif-dev] always
 reflects the latest changes on our master branch. [Staging][ohif-stage] is used
 to regression test a release before a bi-weekly deploy to our [Production
 environment][ohif-prod].

@@ -5,33 +5,37 @@ sidebar_label: Resources
 
 # Resources
 
-Throughout the development of the OHIF Viewer, we have participated in various
+Throughout the development of the Cure Assist, we have participated in various
 conferences and "hackathons". In this page, we will provide the presentations
 and other resources that we have provided to the community in the past:
 
 ## 2023
-### SIIM 2023 Tech Tools Webinar |  April 12th, 2023
 
-Free, Open Source Tools for Research: MONAI and OHIF Viewer
+### SIIM 2023 Tech Tools Webinar | April 12th, 2023
+
+Free, Open Source Tools for Research: MONAI and Cure Assist
 [[Slides](https://docs.google.com/presentation/d/1afJ5Y9Tzukgn7eAbaO1oiCtN7XvIimFdmZP-HcOUofA/edit?usp=sharing)][[Video](https://www.youtube.com/watch?v=lo8J5w5jUJI)]
-
 
 ### [NA-MIC Project Week 38th 2023 - Remote]
 
-We participated in the 38th Project Week with three projects around OHIF. [[Website](https://projectweek.na-mic.org/PW38_2023_GranCanaria/)]
+We participated in the 38th Project Week with three projects around OHIF.
+[[Website](https://projectweek.na-mic.org/PW38_2023_GranCanaria/)]
 
-- PolySeg representations for OHIF Viewer ([link](https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/OHIF_PolySeg/))
-- Cross study sychronizer for OHIF Crosshair ([link](https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/OHIF_SyncCrosshair/))
-- DATSCAN Viewer implementation in OHIF ([link](https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/OHIF_DATSCAN/))
-
-
+- PolySeg representations for Cure Assist
+  ([link](https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/OHIF_PolySeg/))
+- Cross study sychronizer for OHIF Crosshair
+  ([link](https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/OHIF_SyncCrosshair/))
+- DATSCAN Viewer implementation in OHIF
+  ([link](https://projectweek.na-mic.org/PW38_2023_GranCanaria/Projects/OHIF_DATSCAN/))
 
 ## 2022
 
 ### OHIF Demo to Interns
+
 [[Slides]](https://docs.google.com/presentation/d/1a2PkUnqkVMaXaBsuFn7-PPlBJULU3dBwzI_44gKFeYI/edit?usp=sharing)
 
 ### SIIM 2022 - Updates from the Imaging Informatics Community
+
 We participated in the SIIM 2022 conference to give update for the imaging
 informatics community.
 [[Slides]](https://docs.google.com/presentation/d/1EUGaUzQtGhZbZWpGLe6ONqChpVMw9Qr9l3KHODevMow/edit?usp=sharing)
@@ -44,7 +48,6 @@ medical imaging researchers and scientists from across Canada to share
 knowledge, ideas, and experiences.
 [[Slides]](https://docs.google.com/presentation/d/18XZDon4-Sitc2a70V5sFyhyUVZI_mIgfXHGtdxhZMjE/edit?usp=sharing)
 [[Video]](https://vimeo.com/691134870/ad7d308a44)
-
 
 ### [NA-MIC Project Week 36th 2022 - Remote](https://github.com/NA-MIC/ProjectWeek/blob/master/PW36_2022_Virtual/README.md)
 

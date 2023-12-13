@@ -1,13 +1,14 @@
 ---
 sidebar_position: 4
 ---
+
 # Nginx + Image Archive
 
 > DISCLAIMER! We make no claims or guarantees of this approach's security. If in
 > doubt, enlist the help of an expert and conduct proper audits.
 
 At a certain point, you may want others to have access to your instance of the
-OHIF Viewer and its medical imaging data. This post covers one of many potential
+Cure Assist and its medical imaging data. This post covers one of many potential
 setups that accomplish that. Please note, noticably absent is user account
 control.
 
@@ -63,11 +64,10 @@ This setup allows us to create a setup similar to the one pictured below:
 
 ![nginX](../../assets/img/nginx-image-archive.png)
 
-
 - All web requests are routed through `nginx` on our `OpenResty` image
 - `/pacs` is a reverse proxy for `orthanc`'s `DICOM Web` endpoints
 - `/pacs-admin` is a reverse proxy for `orthanc`'s Web Admin
-- All static resources for OHIF Viewer are served up by `nginx` when a matching
+- All static resources for Cure Assist are served up by `nginx` when a matching
   route for that resource is requested
 
 ## Getting Started
@@ -121,9 +121,9 @@ likely want to update:
 
 - The domain: `http://127.0.0.1`
 
-#### OHIF Viewer
+#### Cure Assist
 
-The OHIF Viewer's configuration is imported from a static `.js` file. The
+The Cure Assist's configuration is imported from a static `.js` file. The
 configuration we use is set to a specific file when we build the viewer, and
 determined by the env variable: `APP_CONFIG`. You can see where we set its value
 in the `dockerfile` for this solution:
@@ -145,7 +145,7 @@ All other files are found in: `/docker/OpenResty-Orthanc/`
 
 | Service           | Configuration                     | Docs                                        |
 | ----------------- | --------------------------------- | ------------------------------------------- |
-| OHIF Viewer       | [dockerfile][dockerfile]          | You're reading them now!                    |
+| Cure Assist       | [dockerfile][dockerfile]          | You're reading them now!                    |
 | OpenResty (Nginx) | [`/nginx.conf`][config-nginx]     | [lua-resty-openidc][lua-resty-openidc-docs] |
 | Orthanc           | [`/orthanc.json`][config-orthanc] | [Here][orthanc-docs]                        |
 

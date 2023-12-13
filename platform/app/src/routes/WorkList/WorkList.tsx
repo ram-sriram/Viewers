@@ -398,7 +398,7 @@ function WorkList({
       onClick: () =>
         show({
           content: AboutModal,
-          title: 'About OHIF Viewer',
+          title: 'About Cure Assist',
           contentProps: { versionNumber, commitHash },
         }),
     },

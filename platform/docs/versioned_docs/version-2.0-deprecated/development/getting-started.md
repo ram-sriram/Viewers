@@ -2,6 +2,7 @@
 sidebar_position: 1
 title: Getting Started
 ---
+
 # Getting Started
 
 ## Setup
@@ -9,7 +10,7 @@ title: Getting Started
 ### Fork & Clone
 
 If you intend to contribute back changes, or if you would like to pull updates
-we make to the OHIF Viewer, then follow these steps:
+we make to the Cure Assist, then follow these steps:
 
 - [Fork][fork-a-repo] the [OHIF/Viewers][ohif-viewers-repo] repository
 - [Create a local clone][clone-a-repo] of your fork
@@ -25,7 +26,7 @@ graphic that illustrates this setup][triangular-workflow].
 
 ### Private
 
-Alternatively, if you intend to use the OHIF Viewer as a starting point, and you
+Alternatively, if you intend to use the Cure Assist as a starting point, and you
 aren't as concerned with syncing updates, then follow these steps:
 
 1. Navigate to the [OHIF/Viewers][ohif-viewers] repository
@@ -71,14 +72,9 @@ You should see the following output:
 
 ### 🎉 Celebrate 🎉
 
-
-
-
 <div style={{padding:"56.25% 0 0 0", position:"relative"}}>
     <iframe src="https://player.vimeo.com/video/547952862?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen style= {{ position:"absolute",top:0,left:0,width:"100%",height:"100%"}} title="measurement-report"></iframe>
 </div>
-
-
 
 ### Building for Production
 

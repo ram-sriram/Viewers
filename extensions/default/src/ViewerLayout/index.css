@@ -1,0 +1,23 @@
+.cure-assist-editor{
+  border: 10px;
+  padding: 50px !important;
+}
+
+.cure-assist-editor:focus-visible {
+  outline: none !important;
+  /* border: none !important; */
+}
+
+.open-editor{
+  position: absolute;
+    top: 8px;
+    right: 80px;
+    background: #fff;
+    z-index: 80;
+    display: flex;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    border-radius: 5px;
+}

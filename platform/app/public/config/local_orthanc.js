@@ -21,9 +21,9 @@ window.config = {
       sourceName: 'dicomweb',
       configuration: {
         name: 'DCM4CHEE',
-        wadoUriRoot: 'http://localhost/dicom-web',
-        qidoRoot: 'http://localhost/dicom-web',
-        wadoRoot: 'http://localhost/dicom-web',
+        wadoUriRoot: 'http://20.193.157.55/dicom-web',
+        qidoRoot: 'http://20.193.157.55/dicom-web',
+        wadoRoot: 'http://20.193.157.55/dicom-web',
         qidoSupportsIncludeField: true,
         supportsReject: true,
         imageRendering: 'wadors',
@@ -43,13 +43,18 @@ window.config = {
       sourceName: 'dicomjson',
       configuration: {
         name: 'json',
+        dicomUploadEnabled: true,
       },
+      dicomUploadEnabled: true,
     },
     {
       friendlyName: 'dicom local',
       namespace: '@ohif/extension-default.dataSourcesModule.dicomlocal',
       sourceName: 'dicomlocal',
-      configuration: {},
+      configuration: {
+        dicomUploadEnabled: true,
+      },
+      dicomUploadEnabled: true,
     },
   ],
   httpErrorHandler: error => {

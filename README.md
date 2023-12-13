@@ -2,7 +2,7 @@
 <!-- markdownlint-disable -->
 <div align="center">
   <h1>OHIF Medical Imaging Viewer</h1>
-  <p><strong>The OHIF Viewer</strong> is a zero-footprint medical image viewer
+  <p><strong>The Cure Assist</strong> is a zero-footprint medical image viewer
 provided by the <a href="https://ohif.org/">Open Health Imaging Foundation (OHIF)</a>. It is a configurable and extensible progressive web application with out-of-the-box support for image archives which support <a href="https://www.dicomstandard.org/dicomweb/">DICOMweb</a>.</p>
 </div>
 
@@ -34,16 +34,13 @@ provided by the <a href="https://ohif.org/">Open Health Imaging Foundation (OHIF
 <!-- [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors) -->
 <!-- prettier-ignore-end -->
 
-
-|     |  | |
-| :-: | :---  | :--- |
-| <img src="platform/docs/docs/assets/img/demo-measurements.jpg" alt="Measurement tracking" width="350"/> | Measurement Tracking | [Demo](https://viewer.ohif.org/viewer?StudyInstanceUIDs=1.3.6.1.4.1.25403.345050719074.3824.20170125095438.5) |
-| <img src="platform/docs/docs/assets/img/demo-segmentation.png" alt="Segmentations" width="350"/> | Labelmap Segmentations  | [Demo](https://viewer.ohif.org/viewer?StudyInstanceUIDs=1.3.12.2.1107.5.2.32.35162.30000015050317233592200000046) |
-| <img src="platform/docs/docs/assets/img/demo-ptct.png" alt="Hanging Protocols" width="350"/> | Fusion and Custom Hanging protocols  | [Demo](https://viewer.ohif.org/tmtv?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.7009.2403.334240657131972136850343327463) |
-| <img src="platform/docs/docs/assets/img/demo-microscopy.png" alt="Microscopy" width="350"/> | Slide Microscopy  | [Demo](https://viewer.ohif.org/microscopy?StudyInstanceUIDs=2.25.275741864483510678566144889372061815320) |
-| <img src="platform/docs/docs/assets/img/demo-volumeRendering.png" alt="Volume Rendering" width="350"/> | Volume Rendering  | [Demo](https://viewer.ohif.org/viewer?StudyInstanceUIDs=1.3.6.1.4.1.25403.345050719074.3824.20170125095438.5&hangingprotocolId=mprAnd3DVolumeViewport) |
-
-
+|                                                                                                         |                                     |                                                                                                                                                        |
+| :-----------------------------------------------------------------------------------------------------: | :---------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="platform/docs/docs/assets/img/demo-measurements.jpg" alt="Measurement tracking" width="350"/> | Measurement Tracking                | [Demo](https://viewer.ohif.org/viewer?StudyInstanceUIDs=1.3.6.1.4.1.25403.345050719074.3824.20170125095438.5)                                          |
+|    <img src="platform/docs/docs/assets/img/demo-segmentation.png" alt="Segmentations" width="350"/>     | Labelmap Segmentations              | [Demo](https://viewer.ohif.org/viewer?StudyInstanceUIDs=1.3.12.2.1107.5.2.32.35162.30000015050317233592200000046)                                      |
+|      <img src="platform/docs/docs/assets/img/demo-ptct.png" alt="Hanging Protocols" width="350"/>       | Fusion and Custom Hanging protocols | [Demo](https://viewer.ohif.org/tmtv?StudyInstanceUIDs=1.3.6.1.4.1.14519.5.2.1.7009.2403.334240657131972136850343327463)                                |
+|       <img src="platform/docs/docs/assets/img/demo-microscopy.png" alt="Microscopy" width="350"/>       | Slide Microscopy                    | [Demo](https://viewer.ohif.org/microscopy?StudyInstanceUIDs=2.25.275741864483510678566144889372061815320)                                              |
+| <img src="platform/docs/docs/assets/img/demo-volumeRendering.png" alt="Volume Rendering" width="350"/>  | Volume Rendering                    | [Demo](https://viewer.ohif.org/viewer?StudyInstanceUIDs=1.3.6.1.4.1.25403.345050719074.3824.20170125095438.5&hangingprotocolId=mprAnd3DVolumeViewport) |
 
 ## About
 
@@ -61,7 +58,7 @@ improving Extension System.
 
 ### Community & Experience
 
-The OHIF Viewer is a collaborative effort that has served as the basis for many
+The Cure Assist is a collaborative effort that has served as the basis for many
 active, production, and FDA Cleared medical imaging viewers. It benefits from
 our extensive community's collective experience, and from the sponsored
 contributions of individuals, research groups, and commercial organizations.
@@ -69,7 +66,7 @@ contributions of individuals, research groups, and commercial organizations.
 ### Built to Adapt
 
 After more than 8-years of integrating with many companies and organizations,
-The OHIF Viewer has been rebuilt from the ground up to better address the
+The Cure Assist has been rebuilt from the ground up to better address the
 varying workflow and configuration needs of its many users. All of the Viewer's
 core features are built using it's own extension system. The same extensibility
 that allows us to offer:
@@ -99,7 +96,6 @@ For commercial support, academic collaborations, and answers to common
 questions; please use [Get Support](https://ohif.org/get-support/) to contact
 us.
 
-
 ## Developing
 
 ### Branches
@@ -108,27 +104,34 @@ us.
 
 - `master` - The latest dev release
 
-This is typically where the latest development happens. Code that is in the master branch has passed code reviews and automated tests, but it may not be deemed ready for production. This branch usually contains the most recent changes and features being worked on by the development team. It's often the starting point for creating feature branches (where new features are developed) and hotfix branches (for urgent fixes).
+This is typically where the latest development happens. Code that is in the
+master branch has passed code reviews and automated tests, but it may not be
+deemed ready for production. This branch usually contains the most recent
+changes and features being worked on by the development team. It's often the
+starting point for creating feature branches (where new features are developed)
+and hotfix branches (for urgent fixes).
 
-Each package is tagged with beta version numbers, and published to npm such as `@ohif/ui@3.6.0-beta.1`
+Each package is tagged with beta version numbers, and published to npm such as
+`@ohif/ui@3.6.0-beta.1`
 
 ### `release` branch - The latest stable release
 
-This branch represents the latest stable version of the project that is considered ready for production. The code in this branch should be fully tested and vetted for release. Once the code in the master branch reaches a state where it's stable and ready to be released to users,
-we do a comprehensive code review and QA testing. Once the code is approved,
-we merge it into the release branch and tag a new release.
+This branch represents the latest stable version of the project that is
+considered ready for production. The code in this branch should be fully tested
+and vetted for release. Once the code in the master branch reaches a state where
+it's stable and ready to be released to users, we do a comprehensive code review
+and QA testing. Once the code is approved, we merge it into the release branch
+and tag a new release.
 
-Each package is tagged with version numbers, and published to npm such as `@ohif/ui@3.5.0`
+Each package is tagged with version numbers, and published to npm such as
+`@ohif/ui@3.5.0`
 
-Note: `master` is always ahead of `release` branch. We publish both docker builds for beta and stable releases.
+Note: `master` is always ahead of `release` branch. We publish both docker
+builds for beta and stable releases.
 
 Here is a schematic representation of our development workflow:
 
 ![Alt text](platform/docs/docs/assets/img/github-readme-branches.png)
-
-
-
-
 
 ### Requirements
 
@@ -165,13 +168,13 @@ These commands are available from the root directory. Each project directory
 also supports a number of commands that can be found in their respective
 `README.md` and `project.json` files.
 
-| Yarn Commands                | Description                                                   |
-| ---------------------------- | ------------------------------------------------------------- |
-| **Develop**                  |                                                               |
-| `dev` or `start`             | Default development experience for Viewer                     |
-| `test:unit`                  | Jest multi-project test runner; overall coverage              |
-| **Deploy**                   |                                                               |
-| `build`\*                    | Builds production output for our PWA Viewer                   |  |
+| Yarn Commands    | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| **Develop**      |                                                  |
+| `dev` or `start` | Default development experience for Viewer        |
+| `test:unit`      | Jest multi-project test runner; overall coverage |
+| **Deploy**       |                                                  |
+| `build`\*        | Builds production output for our PWA Viewer      |  |
 
 \* - For more information on our different builds, check out our [Deploy
 Docs][deployment-docs]
@@ -223,7 +226,7 @@ you'll see the following:
 
 ## Acknowledgments
 
-To acknowledge the OHIF Viewer in an academic publication, please cite
+To acknowledge the Cure Assist in an academic publication, please cite
 
 > _Open Health Imaging Foundation Viewer: An Extensible Open-Source Framework
 > for Building Web-Based Imaging Applications to Support Cancer Research_

@@ -2,6 +2,7 @@
 sidebar_position: 3
 title: Continous Integration
 ---
+
 # Continous Integration (CI)
 
 This repository uses `CircleCI` and `Netlify` for continous integration.
@@ -9,7 +10,7 @@ This repository uses `CircleCI` and `Netlify` for continous integration.
 ## Deploy Previews
 
 [Netlify Deploy previews][deploy-previews] are generated for every pull request.
-They allow pull request authors and reviewers to "Preview" the OHIF Viewer as if
+They allow pull request authors and reviewers to "Preview" the Cure Assist as if
 the changes had been merged.
 
 Deploy previews can be configured by modifying the `netlify.toml` file in the
@@ -36,7 +37,6 @@ can be merged to our `master` branch.
   <div><i>Workflow diagram for PR_CHECKS</i></div>
 </div> -->
 
-
 ![PR_CHECKS](../assets/img/WORKFLOW_PR_CHECKS.png)
 
 ### Workflow: PR_OPTIONAL_DOCKER_PUBLISH
@@ -54,15 +54,13 @@ be tested with the Google Adapter before merging to `master`.
 
 ![publish](../assets/img/WORKFLOW_PR_OPTIONAL_DOCKER_PUBLISH.png)
 
-
-
 > NOTE: This workflow will fail unless it's for a branch on our `upstream`
 > repository. If you need this functionality, but the branch is from a fork,
 > merge the changes to a short-lived `feature/` branch on `upstream`
 
 ### Workflow: DEPLOY
 
-The DEPLOY workflow deploys the OHIF Viewer when changes are merged to master.
+The DEPLOY workflow deploys the Cure Assist when changes are merged to master.
 It uses the Netlify CLI to deploy assets created as part of the repository's PWA
 Build process (`yarn run build`). The workflow allows for "Manual Approval" to
 promote the build to `STAGING` and `PRODUCTION` environments.
@@ -101,7 +99,6 @@ GitHub hosts the `gh-pages` branch with GitHub Pages.
   </a>
   <div><i>Workflow diagram for WORKFLOW_RELEASE</i></div>
 </div> -->
-
 
 ![release](../assets/img/WORKFLOW_RELEASE.png)
 

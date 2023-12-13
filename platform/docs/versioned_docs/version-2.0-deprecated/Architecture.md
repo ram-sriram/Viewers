@@ -5,17 +5,15 @@ title: Architecture
 
 # Architecture
 
-Looking to extend your instance of the OHIF Viewer? Want learn how to reuse _a
+Looking to extend your instance of the Cure Assist? Want learn how to reuse _a
 portion_ of the Viewer in your own application? Or maybe you want to get
 involved and draft or suggest a new feature? Regardless, you're in the right
 place!
 
-The OHIF Viewer aims to be decoupled, configurable, and extensible; while this
+The Cure Assist aims to be decoupled, configurable, and extensible; while this
 allows our code to be used in more ways, it also increases complexity. Below, we
 aim to demistify that complexity by providing insight into how our Viewer is
 architected, and the role each of it's dependent libraries plays.
-
-
 
 The [OHIF Medical Image Viewing Platform][viewers-project] is maintained as a
 [`monorepo`][monorepo]. This means that this repository, instead of containing a
@@ -53,6 +51,7 @@ The `extensions` directory contains many packages that can be registered with
 and functionality.
 
 ![Architecture Diagram](./assets/img/architecture-diagram.png)
+
 <!-- <center><i>architecture diagram</i></center> -->
 
 This diagram is a conceptual illustration of how the Viewer is architected.
@@ -86,7 +85,7 @@ Vue, React, Vanilla JS, or any number of other frameworks.
 ## React Component Library
 
 [`@ohif/ui`][ui-github] is a React Component library that contains the reusable
-components that power the OHIF Viewer. It allows us to build, compose, and test
+components that power the Cure Assist. It allows us to build, compose, and test
 components in isolation; easing the development process by reducing the need to
 stand-up a local PACS with test case data.
 

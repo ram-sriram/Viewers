@@ -1,1 +1,1 @@
-# OHIF Viewer
+# Cure Assist

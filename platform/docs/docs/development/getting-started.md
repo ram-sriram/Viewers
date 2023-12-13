@@ -10,7 +10,7 @@ sidebar_label: Getting Started
 ### Fork & Clone
 
 If you intend to contribute back changes, or if you would like to pull updates
-we make to the OHIF Viewer, then follow these steps:
+we make to the Cure Assist, then follow these steps:
 
 - [Fork][fork-a-repo] the [OHIF/Viewers][ohif-viewers-repo] repository
 - [Create a local clone][clone-a-repo] of your fork
@@ -24,10 +24,9 @@ up-to-date with the upstream (original) repository. This is called a "Triangular
 Workflow" and is common for Open Source projects. The GitHub blog has a [good
 graphic that illustrates this setup][triangular-workflow].
 
-
 ### Private
 
-Alternatively, if you intend to use the OHIF Viewer as a starting point, and you
+Alternatively, if you intend to use the Cure Assist as a starting point, and you
 aren't as concerned with syncing updates, then follow these steps:
 
 1. Navigate to the [OHIF/Viewers][ohif-viewers] repository
@@ -46,24 +45,34 @@ aren't as concerned with syncing updates, then follow these steps:
 
 - `master` - The latest dev release
 
-This is typically where the latest development happens. Code that is in the master branch has passed code reviews and automated tests, but it may not be deemed ready for production. This branch usually contains the most recent changes and features being worked on by the development team. It's often the starting point for creating feature branches (where new features are developed) and hotfix branches (for urgent fixes).
+This is typically where the latest development happens. Code that is in the
+master branch has passed code reviews and automated tests, but it may not be
+deemed ready for production. This branch usually contains the most recent
+changes and features being worked on by the development team. It's often the
+starting point for creating feature branches (where new features are developed)
+and hotfix branches (for urgent fixes).
 
-Each package is tagged with beta version numbers, and published to npm such as `@ohif/ui@3.6.0-beta.1`
+Each package is tagged with beta version numbers, and published to npm such as
+`@ohif/ui@3.6.0-beta.1`
 
 ### `release` branch - The latest stable release
 
-This branch represents the latest stable version of the project that is considered ready for production. The code in this branch should be fully tested and vetted for release. Once the code in the master branch reaches a state where it's stable and ready to be released to users,
-we do a comprehensive code review and QA testing. Once the code is approved,
-we merge it into the release branch and tag a new release.
+This branch represents the latest stable version of the project that is
+considered ready for production. The code in this branch should be fully tested
+and vetted for release. Once the code in the master branch reaches a state where
+it's stable and ready to be released to users, we do a comprehensive code review
+and QA testing. Once the code is approved, we merge it into the release branch
+and tag a new release.
 
-Each package is tagged with version numbers, and published to npm such as `@ohif/ui@3.5.0`
+Each package is tagged with version numbers, and published to npm such as
+`@ohif/ui@3.5.0`
 
-Note: `master` is always ahead of `release` branch. We publish both docker builds for beta and stable releases.
+Note: `master` is always ahead of `release` branch. We publish both docker
+builds for beta and stable releases.
 
 Here is a schematic representation of our development workflow:
 
 ![Alt text](../../docs/assets/img/github-readme-branches.png)
-
 
 ### Requirements
 

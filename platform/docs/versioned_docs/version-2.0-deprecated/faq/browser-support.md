@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 ---
+
 # Browser Support
 
 The browsers that we support are specified in the `.browserlistrc` file located
@@ -10,7 +11,7 @@ in the browsers that we support.
 
 ## In Practice
 
-The OHIF Viewer is capable of _running_ on:
+The Cure Assist is capable of _running_ on:
 
 - IE 11
 - FireFox

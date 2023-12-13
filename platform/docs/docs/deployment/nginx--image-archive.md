@@ -8,7 +8,7 @@ sidebar_position: 8
 > doubt, enlist the help of an expert and conduct proper audits.
 
 At a certain point, you may want others to have access to your instance of the
-OHIF Viewer and its medical imaging data. This post covers one of many potential
+Cure Assist and its medical imaging data. This post covers one of many potential
 setups that accomplish that. Please note, noticeably absent is user account
 control.
 
@@ -60,14 +60,12 @@ CORS][understanding-cors]
 
 This setup allows us to create a setup similar to the one pictured below:
 
-
 ![nginX](../assets/img/nginx-image-archive.png)
-
 
 - All web requests are routed through `nginx` on our `OpenResty` image
 - `/pacs` is a reverse proxy for `orthanc`'s `DICOM Web` endpoints
 - `/pacs-admin` is a reverse proxy for `orthanc`'s Web Admin
-- All static resources for OHIF Viewer are served up by `nginx` when a matching
+- All static resources for Cure Assist are served up by `nginx` when a matching
   route for that resource is requested
 
 ## Getting Started
@@ -89,10 +87,7 @@ in command prompt or terminal_
 - Navigate to `127.0.0.1` for the viewer
 - Navigate to `127.0.0.1/pacs-admin` for uploading studies
 
-
 You can see the overview of the mentioned steps:
-
-
 
 <div style={{padding:"56.25% 0 0 0", position:"relative"}}>
     <iframe src="https://player.vimeo.com/video/554726410?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"  frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen style= {{ position:"absolute",top:0,left:0,width:"100%",height:"100%"}} title="measurement-report"></iframe>
@@ -131,13 +126,11 @@ Stop running all containers:
 - Win: `docker ps -a -q | ForEach { docker stop $_ }`
 - Linux: `docker stop $(docker ps -a -q)`
 
+_Traceback (most recent call last):_ _File "urllib3/connectionpool.py", line
+670, in urlopen_ _...._
 
-_Traceback (most recent call last):_
-  _File "urllib3/connectionpool.py", line 670, in urlopen_
-  _...._
-
-Are you sure your docker is running? see explanation [here](https://github.com/docker/compose/issues/7896)
-
+Are you sure your docker is running? see explanation
+[here](https://github.com/docker/compose/issues/7896)
 
 ### Configuration
 
@@ -146,9 +139,9 @@ likely want to update:
 
 - The domain: `http://127.0.0.1`
 
-#### OHIF Viewer
+#### Cure Assist
 
-The OHIF Viewer's configuration is imported from a static `.js` file. The
+The Cure Assist's configuration is imported from a static `.js` file. The
 configuration we use is set to a specific file when we build the viewer, and
 determined by the env variable: `APP_CONFIG`. You can see where we set its value
 in the `dockerfile` for this solution:
@@ -170,7 +163,7 @@ All other files are found in: `/docker/OpenResty-Orthanc/`
 
 | Service           | Configuration                     | Docs                                        |
 | ----------------- | --------------------------------- | ------------------------------------------- |
-| OHIF Viewer       | [dockerfile][dockerfile]          | You're reading them now!                    |
+| Cure Assist       | [dockerfile][dockerfile]          | You're reading them now!                    |
 | OpenResty (Nginx) | [`/nginx.conf`][config-nginx]     | [lua-resty-openidc][lua-resty-openidc-docs] |
 | Orthanc           | [`/orthanc.json`][config-orthanc] | [Here][orthanc-docs]                        |
 

@@ -37,7 +37,7 @@ const StudyListFilter = ({
                 <Typography variant="h4" className="mr-6 text-primary-light">
                   {t('StudyList')}
                 </Typography>
-                {onUploadClick && (
+                {
                   <div
                     className="flex items-center gap-2 cursor-pointer text-primary-active text-lg self-center font-semibold"
                     onClick={onUploadClick}
@@ -45,7 +45,7 @@ const StudyListFilter = ({
                     <Icon name="icon-upload"></Icon>
                     <span>Upload</span>
                   </div>
-                )}
+                }
               </div>
               <div className="flex flex-row">
                 {/* TODO revisit the completely rounded style of button used for clearing the study list filter - for now use LegacyButton*/}

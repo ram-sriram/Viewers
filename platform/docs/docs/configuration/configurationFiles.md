@@ -7,7 +7,7 @@ sidebar_label: Configuration Files
 
 After following the steps outlined in
 [Getting Started](./../development/getting-started.md), you'll notice that the
-OHIF Viewer has data for several studies and their images. You didn't add this
+Cure Assist has data for several studies and their images. You didn't add this
 data, so where is it coming from?
 
 By default, the viewer is configured to connect to a remote server hosted by the
@@ -112,34 +112,46 @@ window.config = ({ servicesManager } = {}) => {
 Here are a list of some options available:
 
 - `maxNumberOfWebWorkers`: The maximum number of web workers to use for
-  decoding. Defaults to minimum of `navigator.hardwareConcurrency` and
-  what is specified by `maxNumberOfWebWorkers`. Some windows machines require smaller values.
-- `acceptHeader` : accept header to request specific dicom transfer syntax ex : [ 'multipart/related; type=image/jls; q=1', 'multipart/related; type=application/octet-stream; q=0.1' ]
-- `requestTransferSyntaxUID` : Request a specific Tansfer syntax from dicom web server ex: 1.2.840.10008.1.2.4.80  (applyed only if acceptHeader is not set)
-- `omitQuotationForMultipartRequest`: Some servers (e.g., .NET) require the `multipart/related` request to be sent without quotation marks. Defaults to `false`. If your server doesn't require this, then setting this flag to `true` might improve performance (by removing the need for preflight requests). Also note that
-if auth headers are used, a preflight request is required.
-- `maxNumRequests`: The maximum number of requests to allow in parallel. It is an object with keys of `interaction`, `thumbnail`, and `prefetch`. You can specify a specific number for each type.
-- `showLoadingIndicator`: (default to true), if set to false, the loading indicator will not be shown when navigating between studies.
-- `dangerouslyUseDynamicConfig`: Dynamic config allows user to pass `configUrl` query string. This allows to load config without recompiling application. If the `configUrl` query string is passed, the worklist and modes will load from the referenced json rather than the default .env config. If there is no `configUrl` path provided, the default behaviour is used and there should not be any deviation from current user experience.<br/>
-Points to consider while using `dangerouslyUseDynamicConfig`:<br/>
-  - User have to enable this feature by setting `dangerouslyUseDynamicConfig.enabled:true`. By default it is `false`.
-  - Regex helps to avoid easy exploit. Dafault is `/.*/`. Setup your own regex to choose a specific source of configuration only.
-  - System administrators can return `cross-origin: same-origin` with OHIF files to disallow any loading from other origin. It will block read access to resources loaded from a different origin to avoid potential attack vector.
+  decoding. Defaults to minimum of `navigator.hardwareConcurrency` and what is
+  specified by `maxNumberOfWebWorkers`. Some windows machines require smaller
+  values.
+- `acceptHeader` : accept header to request specific dicom transfer syntax ex :
+  [ 'multipart/related; type=image/jls; q=1', 'multipart/related;
+  type=application/octet-stream; q=0.1' ]
+- `requestTransferSyntaxUID` : Request a specific Tansfer syntax from dicom web
+  server ex: 1.2.840.10008.1.2.4.80 (applyed only if acceptHeader is not set)
+- `omitQuotationForMultipartRequest`: Some servers (e.g., .NET) require the
+  `multipart/related` request to be sent without quotation marks. Defaults to
+  `false`. If your server doesn't require this, then setting this flag to `true`
+  might improve performance (by removing the need for preflight requests). Also
+  note that if auth headers are used, a preflight request is required.
+- `maxNumRequests`: The maximum number of requests to allow in parallel. It is
+  an object with keys of `interaction`, `thumbnail`, and `prefetch`. You can
+  specify a specific number for each type.
+- `showLoadingIndicator`: (default to true), if set to false, the loading
+  indicator will not be shown when navigating between studies.
+- `dangerouslyUseDynamicConfig`: Dynamic config allows user to pass `configUrl`
+  query string. This allows to load config without recompiling application. If
+  the `configUrl` query string is passed, the worklist and modes will load from
+  the referenced json rather than the default .env config. If there is no
+  `configUrl` path provided, the default behaviour is used and there should not
+  be any deviation from current user experience.<br/> Points to consider while
+  using `dangerouslyUseDynamicConfig`:<br/>
+  - User have to enable this feature by setting
+    `dangerouslyUseDynamicConfig.enabled:true`. By default it is `false`.
+  - Regex helps to avoid easy exploit. Dafault is `/.*/`. Setup your own regex
+    to choose a specific source of configuration only.
+  - System administrators can return `cross-origin: same-origin` with OHIF files
+    to disallow any loading from other origin. It will block read access to
+    resources loaded from a different origin to avoid potential attack vector.
   - Example config:
-    ```js
-    dangerouslyUseDynamicConfig: {
-      enabled: false,
-      regex: /.*/
-    }
-    ```
-  > Example 1, to allow numbers and letters in an absolute or sub-path only.<br/>
-`regex: /(0-9A-Za-z.]+)(\/[0-9A-Za-z.]+)*/`<br/>
-Example 2, to restricts to either hosptial.com or othersite.com.<br/>
-`regex: /(https:\/\/hospital.com(\/[0-9A-Za-z.]+)*)|(https:\/\/othersite.com(\/[0-9A-Za-z.]+)*)/` <br/>
-Example usage:<br/>
-`http://localhost:3000/?configUrl=http://localhost:3000/config/example.json`<br/>
-
-
+    `js dangerouslyUseDynamicConfig: { enabled: false, regex: /.*/ }`
+    > Example 1, to allow numbers and letters in an absolute or sub-path
+    > only.<br/> `regex: /(0-9A-Za-z.]+)(\/[0-9A-Za-z.]+)*/`<br/> Example 2, to
+    > restricts to either hosptial.com or othersite.com.<br/>
+    > `regex: /(https:\/\/hospital.com(\/[0-9A-Za-z.]+)*)|(https:\/\/othersite.com(\/[0-9A-Za-z.]+)*)/`
+    > <br/> Example usage:<br/>
+    > `http://localhost:3000/?configUrl=http://localhost:3000/config/example.json`<br/>
 
 <!-- **Embedded Use Note:**
 

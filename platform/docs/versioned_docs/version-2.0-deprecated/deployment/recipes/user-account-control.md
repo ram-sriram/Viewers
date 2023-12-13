@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 ---
+
 # User Account Control
 
 > DISCLAIMER! We make no claims or guarantees of this approach's security. If in
@@ -37,14 +38,12 @@ This setup allows us to create a setup similar to the one pictured below:
 
 ![userControlFlow](../../assets/img/user-access-control-request-flow.png)
 
-
-
 - All web requests are routed through `nginx` on our `OpenResty` image
 - `/pacs` is a reverse proxy for `orthanc`'s `DICOM Web` endpoints
   - Requires valid `Authorization: Bearer <token>` header
 - `/pacs-admin` is a reverse proxy for `orthanc`'s Web Admin
 - `/auth` is a reverse proxy for `keycloak`
-- All static resources for OHIF Viewer are unprotected and accessible. We have
+- All static resources for Cure Assist are unprotected and accessible. We have
   application logic that will redirect unauthenticated users to the appropriate
   `keycloak` login screen.
 
@@ -125,9 +124,9 @@ likely want to update:
 - Set secure, non-default passwords
 - Regenerate Keycloak Client Secrets
 
-#### OHIF Viewer
+#### Cure Assist
 
-The OHIF Viewer's configuration is imported from a static `.js` file. The
+The Cure Assist's configuration is imported from a static `.js` file. The
 configuration we use is set to a specific file when we build the viewer, and
 determined by the env variable: `APP_CONFIG`. You can see where we set its value
 in the `dockerfile` for this solution:
@@ -149,7 +148,7 @@ All other files are found in: `/docker/OpenResty-Orthanc-Keycloak/`
 
 | Service           | Configuration                                    | Docs                                        |
 | ----------------- | ------------------------------------------------ | ------------------------------------------- |
-| OHIF Viewer       | [dockerfile][dockerfile] / [config.js][config]   | You're reading them now!                    |
+| Cure Assist       | [dockerfile][dockerfile] / [config.js][config]   | You're reading them now!                    |
 | OpenResty (Nginx) | [`/nginx.conf`][config-nginx]                    | [lua-resty-openidc][lua-resty-openidc-docs] |
 | Orthanc           | [`/orthanc.json`][config-orthanc]                | [Here][orthanc-docs]                        |
 | Keycloak          | [`/ohif-keycloak-realm.json`][config-keycloak]\* |                                             |

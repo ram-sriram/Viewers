@@ -5,7 +5,7 @@ sidebar_label: DICOMweb Proxy
 
 # DICOMweb Proxy
 
-You can launch the OHIF Viewer with a url that returns a JSON file which
+You can launch the Cure Assist with a url that returns a JSON file which
 contains a DICOMWeb configuration. The DICOMweb Proxy constructs a DICOMweb
 datasource and delegates subsequent requests for metadata and images to that.
 
@@ -14,8 +14,8 @@ might look like
 
 `https://viewer.ohif.org/viewer/dicomwebproxy?url=https://ohif-dicom-json-example.s3.amazonaws.com/dicomweb.json`
 
-The url to the location of the JSON file is passed in the query
-after the `dicomwebproxy` string, which is
+The url to the location of the JSON file is passed in the query after the
+`dicomwebproxy` string, which is
 `https://ohif-dicom-json-example.s3.amazonaws.com/dicomweb.json` (this json file
 does not exist at the moment of this writing).
 

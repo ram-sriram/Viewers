@@ -1,7 +1,7 @@
 {
-  "name": "OHIF Viewer",
+  "name": "Cure Assist",
   "short_name": "Viewer",
-  "description": "OHIF Viewer",
+  "description": "Cure Assist",
   "dir": "auto",
   "lang": "en-US",
   "orientation": "any",

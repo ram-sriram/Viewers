@@ -8,6 +8,8 @@ const Viewer = () => {
   return (
     <DragAndDropProvider>
       <div>
+        <div className="text-white w-96">hello</div>
+
         <Header />
         <div
           className="flex flex-row flex-nowrap items-stretch flex-1 w-full overflow-hidden"
@@ -20,7 +22,9 @@ const Viewer = () => {
             componentLabel="Studies"
             defaultIsOpen={true}
           >
-            <StudyBrowser />
+            <div className="text-white w-96">hello</div>
+
+            {/* <StudyBrowser /> */}
           </SidePanel>
           <div className="flex items-center justify-center flex-1 overflow-hidden text-white h-100 bg-primary-main">
             {/* <ViewportToolbar /> */}

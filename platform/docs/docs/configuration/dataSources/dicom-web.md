@@ -10,7 +10,7 @@ sidebar_label: DICOMweb
 ATTENTION! Already have a remote or local server? Skip to the
 [configuration section](#configuration-learn-more) below.
 
-While the OHIF Viewer can work with any data source, the easiest to configure
+While the Cure Assist can work with any data source, the easiest to configure
 are the ones that follow the [DICOMWeb][dicom-web] spec.
 
 1. Choose and install an Image Archive
@@ -32,9 +32,9 @@ _Not sure if you have `docker` installed already? Try running `docker --version`
 in command prompt or terminal_
 
 > If you are using `Docker Toolbox` you need to change the _PROXY_DOMAIN_
-> parameter in _platform/app/package.json_ to http://192.168.99.100:8042 or
-> the ip docker-machine ip throws. This is the value [`WebPack`][webpack-proxy]
-> uses to proxy requests
+> parameter in _platform/app/package.json_ to http://192.168.99.100:8042 or the
+> ip docker-machine ip throws. This is the value [`WebPack`][webpack-proxy] uses
+> to proxy requests
 
 ## Open Source DICOM Image Archives
 
@@ -155,39 +155,54 @@ window.config = {
 
 ### Data Source Configuration Options
 
-The following properties can be added to the `configuration` property of each data source.
+The following properties can be added to the `configuration` property of each
+data source.
 
 ##### `dicomUploadEnabled`
-A boolean indicating if the DICOM upload to the data source is permitted/accepted or not. A value of true provides a link on the OHIF work list page that allows for DICOM files from the local file system to be uploaded to the data source
+
+A boolean indicating if the DICOM upload to the data source is
+permitted/accepted or not. A value of true provides a link on the OHIF work list
+page that allows for DICOM files from the local file system to be uploaded to
+the data source
 
 ![toolbarModule-layout](../../assets/img/uploader.gif)
 
 #### `singlepart`
-A comma delimited string specifying which payloads the data source responds with as single part. Those not listed are considered multipart. Values that can be included here are `pdf`, `video`, `bulkdata`, `thumbnail` and `image`.
 
-For DICOM video and PDF it has been found that Orthanc delivers multipart, while DCM4CHEE delivers single part. Consult the DICOM conformance statement for your particular data source to determine which payload types it delivers.
+A comma delimited string specifying which payloads the data source responds with
+as single part. Those not listed are considered multipart. Values that can be
+included here are `pdf`, `video`, `bulkdata`, `thumbnail` and `image`.
 
-To learn more about how you can configure the OHIF Viewer, check out our
+For DICOM video and PDF it has been found that Orthanc delivers multipart, while
+DCM4CHEE delivers single part. Consult the DICOM conformance statement for your
+particular data source to determine which payload types it delivers.
+
+To learn more about how you can configure the Cure Assist, check out our
 [Configuration Guide](../index.md).
 
 ### DICOM Upload
-See the [`dicomUploadEnabled`](#dicomuploadenabled) data source configuration option.
+
+See the [`dicomUploadEnabled`](#dicomuploadenabled) data source configuration
+option.
 
 ### DICOM PDF
+
 See the [`singlepart`](#singlepart) data source configuration option.
 
 ### DICOM Video
+
 See the [`singlepart`](#singlepart) data source configuration option.
 
 ### BulkDataURI
 
-The `bulkDataURI` configuration option allows the datasource to use the
-bulkdata end points for retrieving metadata if originally was not included in the
-response from the server. This is useful for the metadata information that
-are big and can/should be retrieved in a separate request. In case the bulkData URI
+The `bulkDataURI` configuration option allows the datasource to use the bulkdata
+end points for retrieving metadata if originally was not included in the
+response from the server. This is useful for the metadata information that are
+big and can/should be retrieved in a separate request. In case the bulkData URI
 is relative (instead of absolute) the `relativeResolution` option can be used to
-specify the resolution of the relative URI. The possible values are `studies`, `series` and `instances`.
-Certainly the knowledge of how the server is configured is required to use this option.
+specify the resolution of the relative URI. The possible values are `studies`,
+`series` and `instances`. Certainly the knowledge of how the server is
+configured is required to use this option.
 
 ```js
 bulkDataURI: {
@@ -195,7 +210,6 @@ bulkDataURI: {
   relativeResolution: 'series',
 },
 ```
-
 
 ### Running DCM4CHEE
 
@@ -208,7 +222,7 @@ about dcm4chee in their website [here](https://www.dcm4che.org/)
 DCM4chee installation is out of scope for these tutorials and can be found
 [here](https://github.com/dcm4che/dcm4chee-arc-light/wiki/Run-minimum-set-of-archive-services-on-a-single-host)
 
-An overview of steps for running OHIF Viewer using a local DCM4CHEE is shown
+An overview of steps for running Cure Assist using a local DCM4CHEE is shown
 below:
 
 <div style={{padding:"56.25% 0 0 0", position:"relative"}}>

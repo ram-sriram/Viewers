@@ -2,6 +2,7 @@
 sidebar_position: 4
 sidebar_label: Internationalization
 ---
+
 # Viewer: Internationalization
 
 OHIF supports internationalization using [i18next](https://www.i18next.com/)
@@ -91,7 +92,7 @@ function MyComponent({ t, i18n }) {
 export default withTranslation('MyNameSpace')(MyComponent);
 ```
 
-> Important: if you are using React outside the OHIF Viewer, check the
+> Important: if you are using React outside the Cure Assist, check the
 > [I18nextProvider](#using-outside-of-ohif-viewer) section, `withTranslation`
 > HOC doesnt works without a I18nextProvider
 
@@ -101,15 +102,15 @@ Also, it's possible to get the `t` tool using
 [React Hooks](https://react.i18next.com/latest/usetranslation-hook), but it
 requires at least React > 16.8 😉
 
-### Using outside of OHIF viewer
+### Using outside of Cure Assist
 
-OHIF Viewer already sets a main
+Cure Assist already sets a main
 [I18nextProvider](https://react.i18next.com/latest/i18nextprovider) connected to
-the shared i18n instance from `@ohif/i18n`, all extensions inside OHIF Viewer
+the shared i18n instance from `@ohif/i18n`, all extensions inside Cure Assist
 will share this same provider at the end, you don't need to set new providers at
 all.
 
-But, if you need to use it completely outside of OHIF viewer, you can set the
+But, if you need to use it completely outside of Cure Assist, you can set the
 I18nextProvider this way:
 
 ```js
@@ -203,16 +204,16 @@ object like this:
 
 ```json
 {
-  en: {
-    NameSpace: {
-      keyWord1: 'keyWord1Translation',
-      keyWord2: 'keyWord2Translation',
-      keyWord3: 'keyWord3Translation',
+  "en": {
+    "NameSpace": {
+      "keyWord1": "keyWord1Translation",
+      "keyWord2": "keyWord2Translation",
+      "keyWord3": "keyWord3Translation"
     }
   },
-  'en-UK': {
-    NameSpace: {
-      keyWord1: 'keyWord1DifferentTranslation',
+  "en-UK": {
+    "NameSpace": {
+      "keyWord1": "keyWord1DifferentTranslation"
     }
   }
 }
@@ -293,7 +294,7 @@ detector config as parameter.
 
 ### Changing the language
 
-OHIF Viewer accepts a query param called `lng` in the url to change the
+Cure Assist accepts a query param called `lng` in the url to change the
 language.
 
 E.g.

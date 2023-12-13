@@ -154,7 +154,7 @@ jobs:
           name: 'Perform the versioning before build'
           command: node ./version.mjs
       - run:
-          name: 'Build the OHIF Viewer'
+          name: 'Build the Cure Assist'
           command: yarn run build
           no_output_timeout: 45m
       - run:
